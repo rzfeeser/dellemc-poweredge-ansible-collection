@@ -2,4 +2,28 @@
 # video: https://www.youtube.com/watch?v=11PzhCWzHYU
 - name: Control PowerEdge power state   # metadata
   hosts: idrac  # connection local means "talk to the machine"
-  gather_facts: no  # this is a kind of "prestep" 
+  gather_facts: no  # this is a kind of "prestep" we do not want to run when working via HTTP
+
+  # this is deprecated
+  # collections:
+  #  - dellemc.openmanage
+
+  vars:
+    idrac_ip: 192.168.1.163
+    idrac_user: root
+    idrac_password: replace_me_r0gerwilc0
+    reset_type: "On"
+
+  tasks:
+  - name: Power on the PowerEdge
+    dellemc.openmanage.redfish_powerstate:  # dellemc/powermanage/redfish_powerstate.py --idrac_ip 192.168.1.163 --idrac_user root --idrac_password replace_me_r0gerwilc0 --validate_certs False --reset_type "On"
+      baseuri: "{{ idrac_ip }}"
+      username: "{{ idrac_user }}"
+      password: "{{ idrac_password }}"
+      validate_certs: False
+      reset_type: "{{ reset_type }}"  # On, GracefulShutdown
+    register: results  # create a var named results
+
+  - name: Display results
+    ansible.builtin.debug:
+      var: results  # this is the variable "results" created in the last step
