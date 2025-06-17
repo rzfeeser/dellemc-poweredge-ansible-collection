@@ -1,0 +1,5 @@
+# this playbook is described on YouTube by the author RZFeeser on his channel @codewithfeeser
+# video: https://www.youtube.com/watch?v=11PzhCWzHYU
+- name: Control PowerEdge power state   # metadata
+  hosts: idrac  # connection local means "talk to the machine"
+  gather_facts: no  # this is a kind of "prestep" 
