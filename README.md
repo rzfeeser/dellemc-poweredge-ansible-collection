@@ -4,7 +4,7 @@ This repository is an Ansible Collection, `rzfeeser.poweredge` containing Ansibl
 # Demos
 Videos demonstrating Ansible playbooks within this repository are available on the author's [YouTube Channel @CodeWithFeeser](https://www.youtube.com/@CodeWithFeeser):  
 | Example Playbook | YouTube Video Demo |
-|---------------|------------------|
+|------------------------------|---------------------------------|
 | [playbooks/examples/playbook-poweredge-idrac-powerstate.yml](playbooks/examples/playbook-poweredge-idrac-powerstate.yml) | [Ansible for Dell EMC PowerEdge - Power Cycle with a Playbook](https://www.youtube.com/watch?v=11PzhCWzHYU) | 
 
 # Help & Training
